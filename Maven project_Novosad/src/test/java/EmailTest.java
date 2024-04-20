@@ -1,11 +1,18 @@
-import org.junit.Test;
+package maven;
 
+import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class EmailTest {
+        private User user;
 
-        @Test
+   @BeforeEach
+    void setUp() {
+        email = new Email();
+    }
+        
+    @Test
         public void testValidEmail() {
             EmailTest emailChecker = new EmailTest();
             assertTrue(emailChecker.checkEmail("example@example.com"));
@@ -24,14 +31,4 @@ public class EmailTest {
             assertFalse(emailChecker.checkEmail("@example.com"));
             assertFalse(emailChecker.checkEmail("example.com"));
         }
-
-    private void assertFalse(Object checkEmail) {
-    }
-
-    private Object checkEmail(String s) {
-        return null;
-    }
-
-    private void assertTrue(Object checkEmail) {
-    }
 }
